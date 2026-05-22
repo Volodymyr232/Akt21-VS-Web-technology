@@ -1,1 +1,220 @@
+<!DOCTYPE html>
+<html lang="uk">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота 5</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #222222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        #text {
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        #list li {
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: #222222;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <h1>Лабораторна робота 5</h1>
+    </header>
+
+    <main>
+
+        <!-- Зміна тексту -->
+        <section>
+
+            <h2>Зміна контенту</h2>
+
+            <p id="text">
+                Початковий текст сторінки.
+            </p>
+
+            <button id="changeButton">
+                Змінити текст
+            </button>
+
+        </section>
+
+        <!-- Додавання елементів -->
+        <section>
+
+            <h2>Список елементів</h2>
+
+            <button id="addButton">
+                Додати елемент
+            </button>
+
+            <button id="removeButton">
+                Видалити елемент
+            </button>
+
+            <ul id="list"></ul>
+
+        </section>
+
+        <!-- Додаткове завдання -->
+        <section>
+
+            <h2>Додаткове завдання</h2>
+
+            <button id="variantButton">
+                Натисніть 11 разів!
+            </button>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Виконав: Шерстило Володимир</p>
+    </footer>
+
+    <script>
+
+        // Отримання елементів DOM
+        let text = document.getElementById("text");
+
+        let changeButton = document.getElementById("changeButton");
+
+        let addButton = document.getElementById("addButton");
+
+        let removeButton = document.getElementById("removeButton");
+
+        let list = document.getElementById("list");
+
+        let variantButton = document.getElementById("variantButton");
+
+
+
+        // Зміна тексту
+        changeButton.addEventListener("click", function () {
+
+            text.textContent = "Текст успішно змінено!";
+
+            console.log("Текст змінено.");
+
+        });
+
+
+
+        // Зміна стилю при наведенні
+        text.addEventListener("mouseover", function () {
+
+            text.style.color = "red";
+
+            text.style.fontSize = "28px";
+
+        });
+
+
+
+        // Повернення стилю
+        text.addEventListener("mouseout", function () {
+
+            text.style.color = "black";
+
+            text.style.fontSize = "20px";
+
+        });
+
+
+
+        // Додавання нового елемента
+        addButton.addEventListener("click", function () {
+
+            let newItem = document.createElement("li");
+
+            newItem.textContent = "Новий елемент списку";
+
+            list.appendChild(newItem);
+
+            console.log("Елемент додано.");
+
+        });
+
+
+
+        // Видалення елемента
+        removeButton.addEventListener("click", function () {
+
+            if (list.lastElementChild) {
+
+                list.removeChild(list.lastElementChild);
+
+                console.log("Елемент видалено.");
+
+            }
+
+        });
+
+
+
+        // Додаткове завдання
+        let clickCount = 0;
+
+        variantButton.addEventListener("click", function () {
+
+            clickCount++;
+
+            if (clickCount === 11) {
+
+                alert("Шерстило Володимир варіант номер 11!");
+
+                clickCount = 0;
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
